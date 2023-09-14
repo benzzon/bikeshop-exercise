@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:bikeshop_exercise"
+      xmlns:data="clr-namespace:BikeShop"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Discussion">
@@ -17,8 +18,22 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListBox Grid.ColumnSpan="2"
-           Margin="5" />
+        <ListBox Grid.ColumnSpan="2" Margin="5">
+            <ListBox.ItemsSource>
+                <data:Talk />
+            </ListBox.ItemsSource>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="300">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="chat.png" Width="20" />
+                            <TextBlock Text="{Binding Sender}"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Text="{Binding Content}" Margin="20,0,0,0" TextWrapping="Wrap"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button Grid.Row="1"
           Grid.Column="1"
           Margin="5"

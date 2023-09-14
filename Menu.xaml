@@ -19,6 +19,7 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
@@ -30,5 +31,11 @@
 
         <TextBlock Margin="4" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="Adventure Works" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontStyle="Italic"/>
 
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Slider Maximum="100" Value="10" x:Name="slider" />
+            <ProgressBar Value="{Binding Value, ElementName=slider}" />
+            <TextBox Text="{Binding Value, ElementName=slider}" />
+        </StackPanel>
+        
     </Grid>
 </Page>
