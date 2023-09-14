@@ -34,5 +34,10 @@ namespace bikeshop_exercise
         {
             NavigationService.Navigate(new Uri("/Discussion.xaml", UriKind.Relative));
         }
+
+        private void buttonProductsManagement_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ProductsManagement.xaml", UriKind.Relative));
+        }
     }
 }

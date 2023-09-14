@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-            <Button Margin="4" Grid.Column="1" Content="Products" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
+            <Button x:Name="buttonProductsManagement" Margin="4" Grid.Column="1" Content="Products (management)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonProductsManagement_Click"/>
             <Button x:Name="buttonDiscussion" Margin="4" Grid.Column="1" Content="Live support (discussion)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonDiscussion_Click"/>
             <Button x:Name="buttonContact" Margin="4" Grid.Column="1" Content="Email support (contact)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonContact_Click"/>
         </StackPanel>

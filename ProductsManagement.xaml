@@ -1,0 +1,42 @@
+﻿<Page x:Class="bikeshop_exercise.ProductsManagement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:bikeshop_exercise"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductsManagement">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="searchProducts" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="White" TextChanged="searchProducts_TextChanged"/>
+        <DataGrid x:Name="dataGrid" Grid.Column="2" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Border Width="300" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Background="White" DataContext="{Binding SelectedItem, ElementName=dataGrid}">
+            <StackPanel Margin="10">
+            <TextBlock Text="Product details" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Margin="10" />
+            <TextBlock Text="Title" />
+            <TextBox Text="{Binding Title, Mode=TwoWay}" />
+            <TextBlock Text="Price" />
+            <TextBox Text="{Binding Price, Mode=TwoWay}" />
+            <TextBlock Text="Color" />
+            <TextBox Text="{Binding Color, Mode=TwoWay}" />
+            <Border Background="{Binding Color}" Height="10" />
+            <TextBlock Text="Reference" />
+            <TextBox Text="{Binding Reference, Mode=TwoWay}" />
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>
