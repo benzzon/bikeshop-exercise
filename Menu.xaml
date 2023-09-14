@@ -11,21 +11,21 @@
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="39*"/>
-            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="88*"/>
-            <RowDefinition Height="198*"/>
-            <RowDefinition Height="127*"/>
-            <RowDefinition Height="37*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
             <Button Margin="4" Grid.Column="1" Content="Products" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
-            <Button Margin="4" Grid.Column="1" Content="Live support" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
-            <Button x:Name="buttonContact" Margin="4" Grid.Column="1" Content="Email support" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonContact_Click"/>
+            <Button x:Name="buttonDiscussion" Margin="4" Grid.Column="1" Content="Live support (discussion)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonDiscussion_Click"/>
+            <Button x:Name="buttonContact" Margin="4" Grid.Column="1" Content="Email support (contact)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonContact_Click"/>
         </StackPanel>
 
         <TextBlock Margin="4" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="Adventure Works" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontStyle="Italic"/>
