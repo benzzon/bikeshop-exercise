@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bikeshop_exercise.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,32 +9,90 @@ namespace bikeshop_exercise
 {
     public class CurrencyConverterViewModel : Notifier
     {
-		private decimal euros;
-
-		public decimal Euros
-		{
-			get { return euros; }
-			set { 
-				euros = value;
+        private decimal euros;
+        public decimal Euros
+        {
+            get { return euros; }
+            set
+            {
+                euros = value;
                 OnEurosChanged();
                 OnPropertyChanged("Euros");
             }
         }
 
-        private decimal dollars;
-        public decimal Dollars
+        private decimal converted;
+
+        public decimal Converted
         {
-            get { return dollars; }
+            get { return converted; }
+            set {
+                converted = value;
+                OnPropertyChanged("Converted");
+            }
+        }
+
+
+        private Currency selectedCurrency;
+        public Currency SelectedCurrency
+        {
+            get { return selectedCurrency; }
             set
             {
-                dollars = value;
-                OnPropertyChanged("Dollars");
+                selectedCurrency = value;
+                OnPropertyChanged("SelectedCurrency");
+                OnSelectedCurrencyChanged();
             }
+        }
+
+
+        private IEnumerable<Currency> currencies;
+        public IEnumerable<Currency> Currencies
+        {
+            get { return currencies; }
+            set
+            {
+                currencies = value;
+                OnPropertyChanged("Currencies");
+            }
+        }
+        private string resultText;
+        public string ResultText
+        {
+            get { return resultText; }
+            set
+            {
+                resultText = value;
+                OnPropertyChanged("ResultText");
+            }
+        }
+
+        public CurrencyConverterViewModel()
+        {
+            Currencies = new Currency[] {
+                new Currency("US Dollar", 1.1M),
+                new Currency("British Pound", 0.9M)
+            };
         }
 
         private void OnEurosChanged()
         {
-            Dollars = Euros * 1.1M;
+            ComputeConverted();
+        }
+        private void OnSelectedCurrencyChanged()
+        {
+            ComputeConverted();
+        }
+
+        private void ComputeConverted()
+        {
+            if (SelectedCurrency == null)
+            {
+                return;
+            }
+            Converted = Euros * SelectedCurrency.Rate;
+            ResultText = string.Format(
+              "Amount in {0}", SelectedCurrency.Title);
         }
     }
 }
