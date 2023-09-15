@@ -39,5 +39,10 @@ namespace bikeshop_exercise
         {
             NavigationService.Navigate(new Uri("/ProductsManagement.xaml", UriKind.Relative));
         }
+
+        private void buttonCurrencyConverter_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/CurrencyConverter.xaml", UriKind.Relative));
+        }
     }
 }

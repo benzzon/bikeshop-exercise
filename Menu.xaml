@@ -44,7 +44,16 @@
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
             <Button x:Name="buttonProductsManagement" Margin="4" Background="#FF7161E1" Grid.Column="1" Content="Products (management)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonProductsManagement_Click"/>
             <Button x:Name="buttonDiscussion" Margin="4" Background="#FFDD6F31" Grid.Column="1" Content="Live support (discussion)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonDiscussion_Click"/>
-            <Button x:Name="buttonContact" Margin="4" Background="#FF9F0043" Grid.Column="1" Content="Email support (contact)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonContact_Click"/>
+            <Button x:Name="buttonContact" Margin="4" Background="#FF9F0043" Grid.Column="1" Content="Email support (contact)" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Click="buttonContact_Click" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-8"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
         </StackPanel>
 
         <TextBlock Margin="4" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="Adventure Works" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontStyle="Italic"/>
@@ -53,6 +62,7 @@
             <Slider Maximum="100" Value="10" x:Name="slider" />
             <ProgressBar Value="{Binding Value, ElementName=slider}" />
             <TextBox Text="{Binding Value, ElementName=slider}" />
+            <Button x:Name="buttonCurrencyConverter" Margin="8" Content="Currency-converter" Width="150" Click="buttonCurrencyConverter_Click"/>
         </StackPanel>
         
     </Grid>
